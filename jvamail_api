@@ -1,0 +1,47 @@
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+
+public class SendMail {
+
+    public static void main(String[] args) throws Exception {
+
+        String from = "yourgmail@gmail.com";
+        String pass = "yourpassword";
+
+        Properties p = new Properties();
+
+        p.put("mail.smtp.host", "smtp.gmail.com");
+        p.put("mail.smtp.port", "587");
+        p.put("mail.smtp.auth", "true");
+        p.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getDefaultInstance(
+            p,
+            new Authenticator() {
+
+                protected PasswordAuthentication
+                getPasswordAuthentication() {
+
+                    return new PasswordAuthentication(from, pass);
+                }
+            });
+
+        MimeMessage message =
+            new MimeMessage(session);
+
+        message.setFrom(new InternetAddress(from));
+
+        message.addRecipient(
+            Message.RecipientType.TO,
+            new InternetAddress("receiver@gmail.com"));
+
+        message.setSubject("Java Mail");
+
+        message.setText("Hello, Email sent using JavaMail API");
+
+        Transport.send(message);
+
+        System.out.println("Message sent successfully");
+    }
+}
