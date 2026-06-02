@@ -1,0 +1,91 @@
+//Server
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class ServerChat {
+
+    public static void main(String[] args) throws Exception {
+
+        // create server socket
+        ServerSocket ss = new ServerSocket(8000);
+
+        System.out.println("Server is waiting...");
+
+        // accept client connection
+        Socket s = ss.accept();
+
+        System.out.println("Client connected");
+
+        // input and output streams
+        DataInputStream dis =
+            new DataInputStream(s.getInputStream());
+
+        DataOutputStream dos =
+            new DataOutputStream(s.getOutputStream());
+
+        Scanner sc = new Scanner(System.in);
+
+        String msg = "";
+
+        while(true) {
+
+            // receive message from client
+            msg = dis.readUTF();
+
+            System.out.println("Client: " + msg);
+
+            // send reply to client
+            System.out.print("Server: ");
+            msg = sc.nextLine();
+
+            dos.writeUTF(msg);
+        }
+    }
+}
+
+
+
+
+
+//Client
+
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class ClientChat {
+
+    public static void main(String[] args) throws Exception {
+
+        // connect to server
+        Socket s = new Socket("localhost", 8000);
+
+        // input and output streams
+        DataInputStream dis =
+            new DataInputStream(s.getInputStream());
+
+        DataOutputStream dos =
+            new DataOutputStream(s.getOutputStream());
+
+        Scanner sc = new Scanner(System.in);
+
+        String msg = "";
+
+        while(true) {
+
+            // send message to server
+            System.out.print("Client: ");
+            msg = sc.nextLine();
+
+            dos.writeUTF(msg);
+
+            // receive reply from server
+            msg = dis.readUTF();
+
+            System.out.println("Server: " + msg);
+        }
+    }
+}
