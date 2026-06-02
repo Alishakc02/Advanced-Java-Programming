@@ -1,0 +1,23 @@
+package P1;
+
+public class A {
+
+    public void show() {
+
+        System.out.println("From Class A");
+    }
+}
+
+
+
+import P1.*;
+
+public class B {
+
+    public static void main(String args[]) {
+
+        A obj = new A();
+
+        obj.show();
+    }
+}
