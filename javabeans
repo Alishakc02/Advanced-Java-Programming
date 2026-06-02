@@ -1,0 +1,51 @@
+import java.io.Serializable;
+
+// JavaBean class
+class Student implements Serializable {
+
+    // private variables
+    private int id;
+    private String name;
+
+    // no-argument constructor
+    public Student() {
+    }
+
+    // getter method for id
+    public int getId() {
+        return id;
+    }
+
+    // setter method for id
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+// Main class
+public class JavaBeanDemo {
+
+    public static void main(String[] args) {
+
+        // creating bean object
+        Student s = new Student();
+
+        // setting values
+        s.setId(101);
+        s.setName("Alisha");
+
+        // getting values
+        System.out.println("ID: " + s.getId());
+        System.out.println("Name: " + s.getName());
+    }
+}
