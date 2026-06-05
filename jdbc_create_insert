@@ -1,0 +1,46 @@
+import java.sql.*;
+
+public class ProductTable {
+
+    public static void main(String[] args) {
+
+        try {
+
+            // Load Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Create Connection
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/test",
+                "root",
+                ""
+            );
+
+            // Create Statement
+            Statement st = con.createStatement();
+
+            // Create Table
+            String createTable =
+            "CREATE TABLE product(" +
+            "pid INT, " +
+            "name VARCHAR(50), " +
+            "price INT)";
+
+            st.executeUpdate(createTable);
+
+            // Insert Record
+            String insertRecord =
+            "INSERT INTO product VALUES(1,'Laptop',50000)";
+
+            st.executeUpdate(insertRecord);
+
+            System.out.println("Table Created and Record Inserted");
+
+            con.close();
+
+        } catch(Exception e) {
+
+            System.out.println(e);
+        }
+    }
+}
