@@ -1,0 +1,4 @@
+interface Calculator {
+    int add(in int a, in int b);
+    int subtract(in int a, in int b);
+};
