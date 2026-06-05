@@ -1,0 +1,35 @@
+//simple.html
+
+<html>
+<body>
+
+<form action="si.jsp">
+
+Principal:
+<input type="text" name="p"><br><br>
+
+Time:
+<input type="text" name="t"><br><br>
+
+Rate:
+<input type="text" name="r"><br><br>
+
+<input type="submit" value="Calculate">
+
+</form>
+
+</body>
+</html>
+
+
+//si.jsp
+
+<%
+int p = Integer.parseInt(request.getParameter("p"));
+int t = Integer.parseInt(request.getParameter("t"));
+int r = Integer.parseInt(request.getParameter("r"));
+
+int si = (p * t * r) / 100;
+
+out.println("Simple Interest = " + si);
+%>
