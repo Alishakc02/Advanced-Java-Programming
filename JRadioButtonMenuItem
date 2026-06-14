@@ -1,0 +1,37 @@
+import javax.swing.*;
+
+class RadioMenuDemo extends JFrame {
+
+    RadioMenuDemo() {
+
+        JMenuBar mb = new JMenuBar();
+
+        JMenu color = new JMenu("Color");
+
+        JRadioButtonMenuItem red =
+            new JRadioButtonMenuItem("Red");
+
+        JRadioButtonMenuItem blue =
+            new JRadioButtonMenuItem("Blue");
+
+        ButtonGroup bg = new ButtonGroup();
+
+        bg.add(red);
+        bg.add(blue);
+
+        color.add(red);
+        color.add(blue);
+
+        mb.add(color);
+
+        setJMenuBar(mb);
+
+        setSize(300,200);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new RadioMenuDemo();
+    }
+}
