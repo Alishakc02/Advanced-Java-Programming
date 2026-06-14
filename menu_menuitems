@@ -1,0 +1,31 @@
+import javax.swing.*;
+
+class MenuDemo extends JFrame {
+
+    MenuDemo() {
+
+        JMenuBar mb = new JMenuBar();
+
+        JMenu file = new JMenu("File");
+
+        JMenuItem newItem = new JMenuItem("New");
+        JMenuItem editItem = new JMenuItem("Edit");
+        JMenuItem saveItem = new JMenuItem("Save");
+
+        file.add(newItem);
+        file.add(editItem);
+        file.add(saveItem);
+
+        mb.add(file);
+
+        setJMenuBar(mb);
+
+        setSize(400,300);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new MenuDemo();
+    }
+}
