@@ -1,0 +1,84 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+public class LayoutDemo extends Application {
+
+    @Override
+    public void start(Stage stage) {
+
+        // FlowPane
+        FlowPane flow = new FlowPane(10, 10);
+        flow.getChildren().addAll(
+                new Button("1"), new Button("2"), new Button("3"),
+                new Button("4"), new Button("5")
+        );
+
+        // HBox
+        HBox hbox = new HBox(15);
+        hbox.getChildren().addAll(
+                new Button("A"), new Button("B"), new Button("C")
+        );
+        hbox.setPadding(new Insets(10));
+
+        // VBox
+        VBox vbox = new VBox(15);
+        vbox.getChildren().addAll(
+                new Label("Hello World!"),
+                new Button("OK"),
+                new Button("Cancel")
+        );
+        vbox.setPadding(new Insets(10));
+
+        // BorderPane - All Labels
+        BorderPane border = new BorderPane();
+        border.setTop(new Label("Top Region"));
+        border.setBottom(new Label("Bottom Region"));
+        border.setLeft(new Label("Left Region"));
+        border.setRight(new Label("Right Region"));
+        border.setCenter(new Label("Center Region - This area grows and takes remaining space"));
+        border.setPadding(new Insets(15));
+
+      
+        // GridPane
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(10));
+        grid.add(new Label("Username:"), 0, 0);
+        grid.add(new TextField(), 1, 0);
+        grid.add(new Label("Password:"), 0, 1);
+        grid.add(new TextField(), 1, 1);
+        grid.add(new Button("Login"), 1, 2);
+
+        // Main Layout
+        VBox mainLayout = new VBox(20);
+        mainLayout.setPadding(new Insets(15));
+        mainLayout.setAlignment(Pos.TOP_LEFT);
+
+        mainLayout.getChildren().addAll(
+                new Label("1. FlowPane"), flow,
+                new Label("2. HBox"), hbox,
+                new Label("3. VBox"), vbox,
+                new Label("4. BorderPane"), border,
+               
+                new Label("6. GridPane"), grid
+        );
+
+        Scene scene = new Scene(mainLayout, 850, 750);
+
+        stage.setScene(scene);
+        stage.setTitle("JavaFX Layout Demo");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
