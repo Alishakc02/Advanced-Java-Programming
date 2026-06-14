@@ -1,0 +1,32 @@
+import javax.swing.*;
+
+class CheckMenuDemo extends JFrame {
+
+    CheckMenuDemo() {
+
+        JMenuBar mb = new JMenuBar();
+
+        JMenu view = new JMenu("View");
+
+        JCheckBoxMenuItem toolbar =
+            new JCheckBoxMenuItem("Toolbar");
+
+        JCheckBoxMenuItem statusbar =
+            new JCheckBoxMenuItem("Status Bar");
+
+        view.add(toolbar);
+        view.add(statusbar);
+
+        mb.add(view);
+
+        setJMenuBar(mb);
+
+        setSize(300,200);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new CheckMenuDemo();
+    }
+}
