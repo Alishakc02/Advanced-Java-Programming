@@ -1,0 +1,32 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+class PopupDemo extends JFrame {
+
+    PopupDemo() {
+
+        JPopupMenu popup = new JPopupMenu();
+
+        JMenuItem cut = new JMenuItem("Cut");
+        JMenuItem copy = new JMenuItem("Copy");
+
+        popup.add(cut);
+        popup.add(copy);
+
+        addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    popup.show(PopupDemo.this, e.getX(), e.getY());
+                }
+            }
+        });
+
+        setSize(300, 300);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new PopupDemo();
+    }
+}
