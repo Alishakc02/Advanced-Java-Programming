@@ -1,0 +1,10 @@
+import javax.swing.*;
+
+public class MessageDialogDemo {
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Welcome to Java"
+        );
+    }
+}
