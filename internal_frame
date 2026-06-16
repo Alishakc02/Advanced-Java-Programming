@@ -1,0 +1,28 @@
+import javax.swing.*;
+
+public class InternalFrameDemo extends JFrame {
+
+    InternalFrameDemo() {
+
+        JDesktopPane dp = new JDesktopPane();
+
+        JInternalFrame iframe = new JInternalFrame(
+                "Internal Frame",
+                true, true, true, true);
+
+        iframe.setSize(200, 100);
+        iframe.setVisible(true);
+
+        dp.add(iframe);
+
+        add(dp);
+
+        setSize(400, 300);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new InternalFrameDemo();
+    }
+}
