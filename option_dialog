@@ -1,0 +1,33 @@
+import javax.swing.*;
+
+public class OptionDialogDemo {
+    public static void main(String[] args) {
+
+        String options[] = {"Yes", "No", "Maybe"};
+
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "Do you like Java?",
+                "Option Dialog",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        System.out.println("Selected Option: " + choice);
+    }
+}
+
+
+//
+showOptionDialog(
+    parentComponent,
+    message,
+    title,
+    optionType,
+    messageType,
+    icon,
+    options,
+    initialValue
+)
