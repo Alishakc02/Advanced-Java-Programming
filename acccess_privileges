@@ -1,0 +1,97 @@
+//private
+
+class Student {
+
+    private int age = 20;
+
+    void display() {
+        System.out.println("Age = " + age);
+    }
+}
+
+public class PrivateDemo {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        // System.out.println(s.age); // Error
+        s.display();
+    }
+}
+
+
+
+//default
+
+
+class Student {
+
+    int age = 20;   // default
+
+    void display() {
+        System.out.println("Age = " + age);
+    }
+}
+
+public class DefaultDemo {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        System.out.println(s.age);
+        s.display();
+    }
+}
+
+
+//public
+
+
+
+class Student {
+
+    public int age = 20;
+
+    public void display() {
+        System.out.println("Age = " + age);
+    }
+}
+
+public class PublicDemo {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        System.out.println(s.age);
+        s.display();
+    }
+}
+
+//protected
+
+class Animal {
+
+    protected void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+
+    void display() {
+        sound();   // accessing protected method
+    }
+}
+
+public class ProtectedDemo {
+
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+
+        d.display();
+    }
+}
