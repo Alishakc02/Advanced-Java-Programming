@@ -1,0 +1,66 @@
+//write-object
+
+import java.io.*;
+
+class Student implements Serializable {
+    int id = 101;
+    String name = "Alisha";
+}
+
+public class ObjectDemo {
+
+    public static void main(String[] args) {
+
+        try {
+            Student s = new Student();
+
+            FileOutputStream fos =
+                new FileOutputStream("student.txt");
+
+            ObjectOutputStream oos =
+                new ObjectOutputStream(fos);
+
+            oos.writeObject(s);
+
+            oos.close();
+            fos.close();
+
+            System.out.println("Object written successfully");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+//Read-object
+
+
+import java.io.*;
+
+public class ReadObject {
+
+    public static void main(String[] args) {
+
+        try {
+            FileInputStream fis =
+                new FileInputStream("student.txt");
+
+            ObjectInputStream ois =
+                new ObjectInputStream(fis);
+
+            Student s = (Student) ois.readObject();
+
+            System.out.println(s.id + " " + s.name);
+
+            ois.close();
+            fis.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+
+
