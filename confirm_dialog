@@ -1,0 +1,14 @@
+import javax.swing.*;
+
+public class ConfirmDialogDemo {
+    public static void main(String[] args) {
+
+        int result = JOptionPane.showConfirmDialog(
+            null,
+            "Do you want to exit?"
+        );
+
+        System.out.println(result);
+    }
+}
+
